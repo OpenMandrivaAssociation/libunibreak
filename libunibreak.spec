@@ -2,18 +2,13 @@
 %define         altver  5_0
 Name:           libunibreak
 Version:        5.0
-Release:        0
+Release:        1
 Summary:        Unicode line-breaking library
 License:        Zlib
 Group:          Development/Libraries/C and C++
 URL:            https://github.com/adah1972/libunibreak
 Source0:        https://github.com/adah1972/libunibreak/releases/download/libunibreak_%{altver}/%{name}-%{version}.tar.gz
-Source1:        http://www.unicode.org/Public/UNIDATA/auxiliary/LineBreakTest.txt
-Source2:        http://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakTest.txt
-Source3:        http://www.unicode.org/Public/UNIDATA/auxiliary/GraphemeBreakTest.txt
 BuildRequires:  pkgconfig
-Obsoletes:      liblinebreak < 2.1
-Provides:       liblinebreak = 2.1
 
 %description
 Libunibreak is the successor of liblinebreak, an implementation of the line
@@ -29,7 +24,7 @@ Summary:        Development files for libunibreak
 Group:          Development/Libraries/C and C++
 Requires:       %{name}%{libversion} = %{version}
 Requires:       pkgconfig
-Obsoletes:      liblinebreak-devel < 2.1
+
 Provides:       liblinebreak-devel = 2.1
 
 %description devel
@@ -46,10 +41,7 @@ algorithm as described in Unicode Standard Annex 14 and Unicode Standard
 Annex 29.
 
 %prep
-%setup -q
-for source in %{SOURCE1} %{SOURCE2} %{SOURCE3}; do
-	install -m0644 $source src/
-done
+%autosetup -n %{name}-%{version} -p1
 
 %build
 %configure \
@@ -59,12 +51,6 @@ done
 %install
 %make_install
 find %{buildroot} -name '*.*a' -print -delete
-
-%check
-%make_build check
-
-%post -n libunibreak%{libversion} -p /sbin/ldconfig
-%postun -n libunibreak%{libversion} -p /sbin/ldconfig
 
 %files -n libunibreak%{libversion}
 %license LICENCE
@@ -76,5 +62,3 @@ find %{buildroot} -name '*.*a' -print -delete
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/libunibreak.pc
-
-%changelog
