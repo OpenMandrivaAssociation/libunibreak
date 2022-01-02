@@ -1,3 +1,7 @@
+%define major 5
+%define libpackage %mklibname unibreak %{major}
+%define devpackage %mklibname -d unibreak
+
 %define         libversion 5
 %define         altver  5_0
 Name:           libunibreak
@@ -19,23 +23,20 @@ It is designed to be used in a generic text renderer. FBReader is one
 real-world example, and you may also check some simple sample code, like
 showbreak and breaktext.
 
-%package devel
+%package -n %{devpackage}
 Summary:        Development files for libunibreak
 Group:          Development/Libraries/C and C++
-Requires:       %{name}%{libversion} = %{version}
-Requires:       pkgconfig
+Requires:	%{libpackage} = %{EVRD}
 
-Provides:       liblinebreak-devel = 2.1
-
-%description devel
+%description -n %{devpackage}
 The libunibreak-devel package contains libraries and header files for
 developing applications that use libunibreak.
 
-%package -n libunibreak%{libversion}
+%package -n %{libpackage}
 Summary:        Unicode line-breaking library
 Group:          Development/Libraries/C and C++
 
-%description -n libunibreak%{libversion}
+%description -n %{libpackage}
 Libunibreak is an implementation of the line breaking and word breaking
 algorithm as described in Unicode Standard Annex 14 and Unicode Standard
 Annex 29.
@@ -52,11 +53,11 @@ Annex 29.
 %make_install
 find %{buildroot} -name '*.*a' -print -delete
 
-%files -n libunibreak%{libversion}
+%files -n %{libpackage}
 %license LICENCE
-%{_libdir}/*.so.%{libversion}{,.*}
+%{_libdir}/*.so.%{major{,.*}
 
-%files devel
+%files -n %{devpackage}
 %license LICENCE
 %doc AUTHORS NEWS README.md
 %{_includedir}/*
