@@ -55,7 +55,7 @@ find %{buildroot} -name '*.*a' -print -delete
 
 %files -n %{libpackage}
 %license LICENCE
-%{_libdir}/*.so.%{major{,.*}
+%{_libdir}/*.so.%{major}*
 
 %files -n %{devpackage}
 %license LICENCE
