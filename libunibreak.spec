@@ -5,7 +5,7 @@
 %define         libversion 5
 %define         altver  5_0
 Name:           libunibreak
-Version:        5.0
+Version:        5.1
 Release:        1
 Summary:        Unicode line-breaking library
 License:        Zlib
