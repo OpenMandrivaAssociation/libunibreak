@@ -6,7 +6,7 @@
 %define         altver  5_0
 Name:           libunibreak
 Version:        5.1
-Release:        1
+Release:        2
 Summary:        Unicode line-breaking library
 License:        Zlib
 Group:          Development/Libraries/C and C++
