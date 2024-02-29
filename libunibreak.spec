@@ -1,12 +1,13 @@
-%define major 5
-%define libpackage %mklibname unibreak %{major}
+%define major 6
+%define libpackage %mklibname unibreak
+%define oldlibpackage %mklibname unibreak 5
 %define devpackage %mklibname -d unibreak
 
-%define         libversion 5
-%define         altver  5_0
+%define         libversion 6
+%define         altver  6_0
 Name:           libunibreak
-Version:        5.1
-Release:        2
+Version:        6.0
+Release:        1
 Summary:        Unicode line-breaking library
 License:        Zlib
 Group:          Development/Libraries/C and C++
@@ -35,6 +36,7 @@ developing applications that use libunibreak.
 %package -n %{libpackage}
 Summary:        Unicode line-breaking library
 Group:          Development/Libraries/C and C++
+%rename %{oldlibpackage}
 
 %description -n %{libpackage}
 Libunibreak is an implementation of the line breaking and word breaking
