@@ -4,9 +4,9 @@
 %define devpackage %mklibname -d unibreak
 
 %define         libversion 6
-%define         altver  6_0
+%define         altver  6_1
 Name:           libunibreak
-Version:        6.0
+Version:        6.1
 Release:        1
 Summary:        Unicode line-breaking library
 License:        Zlib
