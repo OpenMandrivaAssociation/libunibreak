@@ -13,6 +13,11 @@ License:        Zlib
 Group:          Development/Libraries/C and C++
 URL:            https://github.com/adah1972/libunibreak
 Source0:        https://github.com/adah1972/libunibreak/releases/download/libunibreak_%{altver}/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  pkgconfig
 
 %description
